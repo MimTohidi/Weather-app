@@ -500,49 +500,13 @@ body {
   background: #f5f5f5;
   margin: 0;
 }
-
-#fabrizio {
-  border-top: 100px solid black;
-  border-right: 63px solid transparent;
-  width: 0;
-  transform: scale(0.33);
-  transform-origin: 0 0;
-  margin: 20px;
-  opacity: 0.6;
-  display: none;
-}
-#fabrizio:before {
-  background: black;
-  width: 20px;
-  height: 30px;
-  content: "";
-  display: block;
-  transform: skewX(-32deg);
-  position: relative;
-  top: -64px;
-  left: 30px;
-}
-#fabrizio:after {
-  background: black;
-  width: 40px;
-  height: 36px;
-  content: "";
-  display: block;
-  transform: skewX(-32deg);
-  position: relative;
-  top: -130px;
-  left: 50px;
-}
-a {
-  position: absolute;
-  top: 30px;
-  left: 60px;
+.contact-me {
   color: #777;
   text-decoration: none;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  display: none;
+  text-align: center;
 }
 
 .container {
