@@ -1,27 +1,62 @@
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+}
+
 h1 {
   font-family: "Saira Condensed", sans-serif;
   font-size: 3rem;
 }
+
+h3 {
+  margin-top: 100px;
+}
+
 .container {
+  background: linear-gradient(
+    left,
+    #00bbff,
+    #00bbff 14.3%,
+    #2eb5e5 14.3%,
+    #2eb5e5 28.6%,
+    #e6e6e6 28.6%,
+    #e6e6e6 42.9%,
+    #f3d166 42.9%,
+    #f3d166 57.2%,
+    #222233 57.2%,
+    #222233 71.5%,
+    #444444 71.5%,
+    #444444 85.8%,
+    #85db8c 85.8%
+  );
+  transform: scale(0.9);
+  width: 1200px;
   margin-top: 8px;
   border: 1px solid #f9cf93;
   border-radius: 6px;
-  max-width: 100%;
   background: #f9e4c8;
+}
+
+#submit-search {
+  margin-right: 13px;
+  margin-left: -45px;
+}
+
+#exampleDataList {
+  border-radius: 2px;
+  border: #f9cf93;
+  margin-right: 3px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  height: 37px;
+  outline: 0;
+  padding: 10px;
+  width: 390px;
 }
 
 .input-group {
   margin-bottom: 18px;
   margin-top: 10px;
-
   margin-right: 20px;
-}
-
-#submit-search {
-  margin-right: 10px;
-}
-.searching {
-  text-align: left;
 }
 
 .weather-body {
@@ -51,13 +86,6 @@ h1 {
   height: 92px;
 }
 
-#exampleDataList {
-  padding-right: 140px;
-}
-
-#location {
-  padding: auto 15px;
-}
 .card {
   background: #e9e9e9;
 }
@@ -66,8 +94,13 @@ h1 {
   opacity: 0.6;
 }
 
-h3 {
-  margin-top: 100px;
+.contact-me {
+  color: #777;
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 /* SUNNY */
@@ -493,39 +526,4 @@ h3 {
       #eeeeee 70px 100px, #eeeeee 80px 95px, #eeeeee 110px 45px,
       #eeeeee 90px 35px;
   }
-}
-
-body {
-  font-family: sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-}
-.contact-me {
-  color: #777;
-  text-decoration: none;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.container {
-  background: linear-gradient(
-    left,
-    #00bbff,
-    #00bbff 14.3%,
-    #2eb5e5 14.3%,
-    #2eb5e5 28.6%,
-    #e6e6e6 28.6%,
-    #e6e6e6 42.9%,
-    #f3d166 42.9%,
-    #f3d166 57.2%,
-    #222233 57.2%,
-    #222233 71.5%,
-    #444444 71.5%,
-    #444444 85.8%,
-    #85db8c 85.8%
-  );
-  transform: scale(0.9);
-  width: 1200px;
 }
