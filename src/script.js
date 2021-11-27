@@ -48,6 +48,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemp = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -80,6 +82,18 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 19;
 }
 
+function convertToFahrenheit() {
+  let temperatureElement = document.querySelector("#temperature-degree");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemp)}°F`;
+}
+
+function convertToCelcius() {
+  let temperatureElement = document.querySelector("#temperature-degree");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemp)}°C`;
+}
+
+let celsiusTemp = null;
 let dateElement = document.querySelector("#current-date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
@@ -92,4 +106,9 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let iconElement = document.querySelector("#icon");
 
+let fahrenheitButton = document.querySelector("#fahrenheit-degree");
+fahrenheitButton.addEventListener("click", convertToFahrenheit);
+
+let celciusButton = document.querySelector("#celcius-degree");
+celciusButton.addEventListener("click", convertToCelcius);
 searchCity("Ilam");
