@@ -23,6 +23,36 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForcast(response) {
+  let forcastElement = document.querySelector("#forcast");
+  let forcastHtml = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forcastHtml =
+      forcastHtml +
+      `
+        <div class="card border-primary mb-3" style="width: 20rem">
+          <div class="card-body text-info">
+              <h5 class="card-title">${day}</h5>
+              <div class="rainy"></div>
+              <span class="card-text text-warning max-temp">12° | </span>
+              <span class="card-text text-warning min-temp">12°</span>
+          </div>
+        </div>
+  `;
+  });
+
+  forcastHtml = forcastHtml + `</div>`;
+  forcastElement.innerHTML = forcastHtml;
+  console.log(response.data.daily);
+}
+
+function getForcast(coordinates) {
+  let apiKey = "066e6846e09ae10d49fa3612a2af48a3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForcast);
+}
+
 function showWeather(response) {
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#temperature-degree").innerHTML = `${Math.round(
@@ -50,6 +80,8 @@ function showWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemp = response.data.main.temp;
+
+  getForcast(response.data.coord);
 }
 
 function searchCity(city) {
