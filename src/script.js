@@ -23,28 +23,48 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timesTamp) {
+  let date = new Date(timesTamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForcast(response) {
+  let forcast = response.data.daily;
   let forcastElement = document.querySelector("#forcast");
   let forcastHtml = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forcastHtml =
-      forcastHtml +
-      `
+  forcast.forEach(function (forcastDay, index) {
+    if (index < 6) {
+      forcastHtml =
+        forcastHtml +
+        `
         <div class="card border-primary mb-3" style="width: 20rem">
           <div class="card-body text-info">
-              <h5 class="card-title">${day}</h5>
-              <div class="rainy"></div>
-              <span class="card-text text-warning max-temp">12° | </span>
-              <span class="card-text text-warning min-temp">12°</span>
+              <h5 class="card-title">${formatDay(forcastDay.dt)}</h5>
+              <img 
+              src="http://openweathermap.org/img/wn/${
+                forcastDay.weather[0].icon
+              }@2x.png"
+              alt=""
+              width="45"
+              />
+              <span class="card-text text-warning max-temp">${Math.round(
+                forcastDay.temp.max
+              )}° | </span>
+              <span class="card-text text-warning min-temp">${Math.round(
+                forcastDay.temp.min
+              )}°</span>
           </div>
         </div>
   `;
+    }
   });
 
   forcastHtml = forcastHtml + `</div>`;
   forcastElement.innerHTML = forcastHtml;
-  console.log(response.data.daily);
 }
 
 function getForcast(coordinates) {
