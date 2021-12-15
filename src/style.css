@@ -8,10 +8,6 @@ h1 {
   font-size: 3rem;
 }
 
-/*h3 {
-  margin-top: 100px;
-}
-*/
 .container {
   background: linear-gradient(
     left,
@@ -30,7 +26,7 @@ h1 {
     #85db8c 85.8%
   );
   transform: scale(0.9);
-  width: 1200px;
+  width: 1120px;
   margin-top: 8px;
   border: 1px solid #f9cf93;
   border-radius: 6px;
@@ -104,7 +100,7 @@ h1 {
 }
 
 .main-image {
-  width: 191px;
+  width: 165px;
   display: block;
   margin: 0 auto;
 }
